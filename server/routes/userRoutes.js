@@ -15,6 +15,11 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
+router.get('/' , (req , res) => {
+  res.send("You are on the home page")
+})
+
+
 router.post('/submit', upload.array('images', 10), async (req, res) => {
   try {
     const { name, socialHandle } = req.body;
